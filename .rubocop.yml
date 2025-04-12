@@ -1,0 +1,13 @@
+inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+
+
+plugins: rubocop-rspec
+
+AllCops:
+  NewCops: enable
+
+Metrics/MethodLength:
+  Max: 200
+
+RSpec/MultipleExpectations:
+  Max: 3
