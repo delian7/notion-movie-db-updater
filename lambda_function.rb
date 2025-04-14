@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
 require 'json'
-require 'notion-ruby-client'
-require 'httparty'
 require 'logger'
 require 'byebug'
 
 require_relative 'src/notion_client.rb'
 require_relative 'src/imdb_client.rb'
-
 
 LOGGER = Logger.new($stdout)
 LOGGER.level = ENV['LOG_LEVEL'] || Logger::INFO
@@ -51,7 +48,7 @@ def lambda_handler(event:, context:) # rubocop:disable Lint/UnusedMethodArgument
   # raw_data = event.dig('queryStringParameters', 'raw_data')
 
   case http_method
-  when 'GET'
+  when 'POST'
     result = process_movies
     send_response(result)
   else
@@ -81,5 +78,3 @@ def error_response(error)
     'body' => JSON.generate({ error: error.message })
   }
 end
-
-p process_movies
