@@ -4,6 +4,8 @@ source "https://rubygems.org"
 
 gem "dotenv"
 gem "rubocop-rails-omakase", require: false
+gem "notion-ruby-client"
+gem "httparty"
 
 group :development do
   gem "rubocop-rspec"
